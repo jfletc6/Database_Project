@@ -1,0 +1,90 @@
+Cyber Club Database Portal – Setup & Run Guide
+
+This guide walks through:
+
+1. Preparing your database on triton.towson.edu
+2. Loading the schema, dummy data, and drop tables scripts
+3. Compiling and running the Java Swing app on your Windows machine
+
+------------------------------------------------------------
+1. Log into Triton with PuTTY
+------------------------------------------------------------
+
+1. Open PuTTY.
+2. Host Name: triton.towson.edu
+   Port: 22
+   Connection type: SSH
+3. Click Open.
+4. Log in with your Triton with Towson username and password.
+
+------------------------------------------------------------
+2. Create the SQL files on Triton
+------------------------------------------------------------
+
+Make sure you are in your home directory:
+cd ~
+
+2.1. Create the schema file
+
+nano schema
+(Copy and paste project_schema script)
+Ctrl+O, Enter to save
+Ctrl+X to exit
+
+2.2. Create the dummy data file
+
+nano dummy_data
+(Copy and paste dummy_data script)
+Save and exit
+
+2.3. Create the drop tables file
+
+nano drop_tables
+(Copy and Paste drop_table script)
+Save and exit
+
+2.4 Make all script executable
+chmod 700 schema
+chmod 700 dummy_data
+chmod 700 drop_tables
+
+------------------------------------------------------------
+3. Load the schema and data in MySQL
+------------------------------------------------------------
+
+mysql -u <MySQL username> -p
+<MySQL password>
+USE <database name>;
+
+SOURCE schema;
+SOURCE dummy_data;
+
+(Optional) To wipe everything:
+SOURCE drop_tables;
+
+EXIT;
+
+------------------------------------------------------------
+4. Compile and run the Java application on Windows
+------------------------------------------------------------
+
+cd H:\Database\Project\App
+
+Ensure the JDBC jar is located at:
+H:\Database\Project\App\lib\mysql-connector-java-8.0.16.jar
+
+4.1. Set CLASSPATH
+PowerShell:
+$env:CLASSPATH = ".;lib\mysql-connector-java-8.0.16.jar"
+
+4.2. Compile
+javac *.java
+
+4.3. Run
+java Project
+
+(Optional) To delete classes:
+rm *.class
+
+
+This will launch the GUI and database.
