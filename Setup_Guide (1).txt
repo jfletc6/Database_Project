@@ -67,20 +67,10 @@ EXIT;
 ------------------------------------------------------------
 4. Compile and run the Java application on Windows
 ------------------------------------------------------------
-
-cd H:\Database\Project\App
-
-Ensure the JDBC jar is located at:
-H:\Database\Project\App\lib\mysql-connector-java-8.0.16.jar
-
-4.1. Set CLASSPATH
-PowerShell:
-$env:CLASSPATH = ".;lib\mysql-connector-java-8.0.16.jar"
-
-4.2. Compile
+4.1. Compile
 javac *.java
 
-4.3. Run
+4.2. Run
 java Project
 
 (Optional) To delete classes:
