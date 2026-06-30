@@ -100,4 +100,4 @@ java -cp ../../mysql-connector-java-8.0.16.jar:. Project
 
 > On Windows replace `:` with `;` in the classpath.
 
-See `Setup_Guide (1).txt` for the full step-by-step walkthrough.
+See `Setup_Guide.txt` for the full step-by-step walkthrough.
